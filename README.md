@@ -9,7 +9,7 @@ Stack is a container of objects that are inserted and removed according to the l
 
 Queue is a container of objects (a linear collection) that are inserted and removed according to the first-in first-out (FIFO) principle.
 
-```markdown
+```Python
 #using python 
 
 class Stack(list):
@@ -26,9 +26,27 @@ class Queue(list):
         return self.pop(0)
 ```
 
-### Jekyll Themes
+### 주식가격 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/rockystone77/Algorithm_notes/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+![image](https://user-images.githubusercontent.com/88238335/134834037-7fb286ca-8c5a-4fca-bb31-cbbd28f99a0d.png)
+
+```Python
+#using python 
+
+def solution(prices):
+    #add zeros to results
+    result=[0 for x in range(len(prices))]
+    #go through each element and the one after to see if there was a drop in prices
+    #if there was a drop break if not add more seconds to result
+    for i in range(len(prices)):
+        for j in range(i+1,len(prices)):
+            if prices[i]<=prices[j]:
+                result[i]+=1
+            else:
+                result[i]+=1
+                break
+    return result
+```
 
 ### Support or Contact
 
