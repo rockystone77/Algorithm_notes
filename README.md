@@ -34,10 +34,14 @@ class Queue(list):
 #using python 
 
 def solution(prices):
+
     #add zeros to results
+    
     result=[0 for x in range(len(prices))]
+    
     #go through each element and the one after to see if there was a drop in prices
     #if there was a drop break if not add more seconds to result
+    
     for i in range(len(prices)):
         for j in range(i+1,len(prices)):
             if prices[i]<=prices[j]:
@@ -48,6 +52,35 @@ def solution(prices):
     return result
 ```
 
-### Support or Contact
+### 기능개발
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+![image](https://user-images.githubusercontent.com/88238335/134906335-438873f7-2f7d-4b49-94d4-baf5e0557367.png)
+
+```Python
+import math
+
+def solution(progresses, speeds):
+    result = []
+    timeleft = []
+    counter = 1
+    
+    #Appends the time needed to finish the progress to timeleft
+    
+    for i in range(len(progresses)):
+        timeleft.append(math.ceil(  (100 - progresses[i] ) / speeds[i]))
+        
+    # pop the list of timeleft and see if the time after has less time to completion and add 1 to counter
+    
+    first = timeleft.pop(0)
+    
+    while len(timeleft) > 0:
+        if first >= timeleft[0]:
+            counter += 1
+            timeleft.pop(0)
+        else:
+            result.append(counter)
+            first = timeleft.pop(0)
+            counter = 1
+    result.append(counter)
+    return result
+```
