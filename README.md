@@ -1,32 +1,30 @@
-## Welcome to GitHub Pages
+## Welcome to Peter Jung's Algorithm Notes
 
-You can use the [editor on GitHub](https://github.com/rockystone77/Algorithm_notes/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+This is a [news site](https://www.bbc.com/) that I always go to. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Stacks and Queues 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Stack is a container of objects that are inserted and removed according to the last-in first-out (LIFO) principle.
+
+Queue is a container of objects (a linear collection) that are inserted and removed according to the first-in first-out (FIFO) principle.
 
 ```markdown
-Syntax highlighted code block
+#using python 
 
-# Header 1
-## Header 2
-### Header 3
+class Stack(list):
+    push = list.append
+    def peek(self):
+        return self[-1]
+    #pop is already a built in function in python
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+class Queue(list):
+    put = list.append
+    def peek(self):
+        return self[0]
+    def get(self):
+        return self.pop(0)
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Jekyll Themes
 
