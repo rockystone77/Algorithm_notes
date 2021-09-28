@@ -121,3 +121,36 @@ def solution(bridge_length, weight, truck_weights):
                 bridge.append(0)
     return time
 ```
+### 모의고사
+
+![image](https://user-images.githubusercontent.com/88238335/135083172-5d6b802a-00c1-4523-a9dc-1960cef8d8b8.png)
+
+
+```Python
+
+def solution(answers):
+    #write down the patterns in separate list
+    a = [1,2,3,4,5]
+    b = [2,1,2,3,2,4,2,5]
+    c = [3,3,1,1,2,2,4,4,5,5]
+    score = [0, 0, 0]
+    result = []
+    
+    #go through each pattern if it matches with the answer:
+    #if true +1 to score
+    for idx, answer in enumerate(answers):
+        if answer == a[idx%len(a)]:
+            score[0] += 1
+        if answer == b[idx%len(b)]:
+            score[1] += 1
+        if answer == c[idx%len(c)]:
+            score[2] += 1
+            
+    #look for who correctly guessed the answers the most
+    for idx, scores in enumerate(score):
+        if scores == max(score):
+            result.append(idx+1)
+
+    return result
+    
+```
