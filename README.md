@@ -84,3 +84,40 @@ def solution(progresses, speeds):
     result.append(counter)
     return result
 ```
+### 다리를 지나는 트럭
+
+![image](https://user-images.githubusercontent.com/88238335/135065874-3bce7aa6-2814-4827-a72e-bca887c72d55.png)
+
+
+```Python
+import math
+
+def solution(bridge_length, weight, truck_weights):
+    
+    #Add 0s to the bridge as one unit is one second
+    bridge = [0]*bridge_length
+    time = 0
+    finished = 0
+    bridge_weight = 0
+    while len(bridge) != 0:
+        #finished has the weight of the truck when it crossed the bridge and is 0 if there are no trucks
+        finished  = bridge.pop(0)
+        #update bridge_weight
+        bridge_weight -= finished
+        #add a second to the clock
+        time+=1
+        #if there are still trucks waiting
+        if truck_weights:
+            #make sure the trucks does not go over the weight limit
+            if bridge_weight + truck_weights[0] <= weight:
+                #get the next truck in queue
+                truck = truck_weights.pop(0)
+                #update bridge_weight
+                bridge_weight += truck
+                #update trucks on the bridge
+                bridge.append(truck)
+            else:
+                #if the bridge is full then 0 for no trucks
+                bridge.append(0)
+    return time
+```
