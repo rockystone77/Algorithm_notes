@@ -3,7 +3,7 @@
 This is a [news site](https://www.bbc.com/) that I always go to. 
 
 
-### Stacks and Queues 
+## Stacks and Queues 
 
 Stack is a container of objects that are inserted and removed according to the last-in first-out (LIFO) principle.
 
@@ -26,7 +26,7 @@ class Queue(list):
         return self.pop(0)
 ```
 
-### 주식가격 
+## 주식가격 
 
 ![image](https://user-images.githubusercontent.com/88238335/134834037-7fb286ca-8c5a-4fca-bb31-cbbd28f99a0d.png)
 
@@ -52,7 +52,7 @@ def solution(prices):
     return result
 ```
 
-### 기능개발
+## 기능개발
 
 ![image](https://user-images.githubusercontent.com/88238335/134906335-438873f7-2f7d-4b49-94d4-baf5e0557367.png)
 
@@ -84,7 +84,7 @@ def solution(progresses, speeds):
     result.append(counter)
     return result
 ```
-### 다리를 지나는 트럭
+## 다리를 지나는 트럭
 
 ![image](https://user-images.githubusercontent.com/88238335/135065874-3bce7aa6-2814-4827-a72e-bca887c72d55.png)
 
@@ -121,7 +121,7 @@ def solution(bridge_length, weight, truck_weights):
                 bridge.append(0)
     return time
 ```
-### 모의고사
+## 모의고사
 
 ![image](https://user-images.githubusercontent.com/88238335/135083172-5d6b802a-00c1-4523-a9dc-1960cef8d8b8.png)
 
@@ -152,5 +152,41 @@ def solution(answers):
             result.append(idx+1)
 
     return result
+    
+```
+
+## 소수 찾기
+
+![image](https://user-images.githubusercontent.com/88238335/135207115-f6281f4e-023e-4f7a-ad28-fe268292a167.png)
+
+### There was probably another way than using permutations but I am not smart to do that. 
+
+```Python
+#import itertools
+import itertools as it
+
+def solution(numbers):
+    primes = 0
+    b = set()
+    #get all possible iterations of the numbers given in "numbers"
+    for i in range(1, len(numbers)+1):
+        b.update((set(map(''.join, it.permutations(numbers,i)))))
+    
+    #Change the elements to int
+    b = set(map(int, b))
+    
+    #Go through each number and see if they are prime number
+    #If Prime number +1 to prime
+    for num in b:
+        ans = 0
+        if int(num) <= 1:
+            continue
+        for i in range(1, (num+1)//2+1):
+            if num % i == 0:
+                ans+=1
+        if ans ==1:
+            primes += 1
+            
+    return primes
     
 ```
