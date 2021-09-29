@@ -190,3 +190,30 @@ def solution(numbers):
     return primes
     
 ```
+## 숫자 카드 2
+
+![image](https://user-images.githubusercontent.com/88238335/135222429-d08c7391-38bb-469f-884a-50c574403b20.png)
+
+
+```Python
+
+#import collections for easy access to how many a certain card the person has e.g ->  {10:2, 3:2} there is 2 number 10 cards and 2 number 3 cards
+#stdin for input of user
+
+from sys import stdin
+from collections import Counter
+
+#Read through each input
+_ = stdin.readline()
+N = stdin.readline().split()
+_ = stdin.readline()
+M = stdin.readline().split()
+
+#Counter the input
+C = Counter(N)
+
+#See if M has cards that we have and print with a space in between. 
+print(' '.join(f'{C[m]}' if m in C else '0' for m in M))
+
+    
+```
