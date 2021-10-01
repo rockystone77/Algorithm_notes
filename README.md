@@ -217,3 +217,54 @@ print(' '.join(f'{C[m]}' if m in C else '0' for m in M))
 
     
 ```
+## BFS 와 DFS
+
+![image](https://user-images.githubusercontent.com/88238335/135620390-3a5abf23-303e-4e5a-9ec0-cbe5f57175de.png)
+
+```Python
+#import deque because it's O(1) not O(n)
+from collections import deque
+
+N, M, V = map(int, input().split())
+
+#Create Graph with size N 
+graph = [[0] * (N+1) for i in range(N+1)]
+
+#Set the nodes that are connected to each other
+#If they are connected node = 1
+for i in range(M):
+    node1, node2 = map(int, input().split())
+    graph[node1][node2] = graph[node2][node1] = 1
+
+#BFS
+def bfs(v):
+    found = [v]
+    queue = deque()
+    queue.append(v)
+
+    while queue:
+        test = queue.popleft()
+        print(test, end=' ')
+
+        for i in range(len(graph[v])):
+            if graph[test][i] == 1 and (i not in found):
+                found.append(i)
+                queue.append(i)
+
+#DFS
+def dfs(v, found= []):
+    found.append(v)
+    print(v, end= ' ')
+
+    for i in range(len(graph[v])):
+        if graph[v][i] == 1 and (i not in found):
+            dfs(i, found)
+
+
+
+dfs(V)
+print()
+bfs(V)
+
+    
+```
