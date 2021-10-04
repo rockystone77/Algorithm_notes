@@ -268,3 +268,48 @@ bfs(V)
 
     
 ```
+
+## 바이러스 
+
+![image](https://user-images.githubusercontent.com/88238335/135801475-f14e6025-8d74-4f61-a4d8-995adcae6045.png)
+
+### The program needs to be simple in order for the test to pass (don't know why) the tester compilier probably uses lower version of python lul
+```Python
+#Use DFS to go through the computers that will be infected
+def virus(graph, N):
+    counter = 0
+    visited = [ 0 for z in range(N+1)]
+    stack = []
+    stack.append(1)
+
+    while(stack):
+        top = stack.pop()
+        for i in range(1,N+1):
+            if graph[top][i] == 1 and visited[i] == 0:
+                visited[i] = 1
+                stack.append(i)
+                counter += 1
+    print(counter -1)
+
+def main():
+    N = int(input())
+    M = int(input())
+    
+    #Make a graph for the node
+    graph = [[0 for j in range(N+1)] for i in range(N+1)]
+
+    #See if the nodes are connected
+    for i in range(M):
+        node1, node2  =input().split()
+        node1 = int(node1)
+        node2 = int(node2)
+        graph[node1][node2] = 1 
+        graph[node2][node1] = 1
+
+    virus(graph, N)
+
+if __name__ == "__main__":
+    main()
+
+    
+```
