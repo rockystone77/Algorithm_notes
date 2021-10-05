@@ -313,3 +313,32 @@ if __name__ == "__main__":
 
     
 ```
+
+## 타겟 넘버
+
+![image](https://user-images.githubusercontent.com/88238335/135957636-a1f6ba76-123d-4510-9e9a-4310216e9dfc.png)
+
+```Python
+
+def solution(numbers,target):
+    answer = dfs(0, numbers,target,0)
+    return answer
+    
+
+
+def dfs(idx, numbers,target, value):
+    answer = 0
+    
+    #if the search has gone to the limit which is idx and if the value matches the target add 1 to answer
+    if idx == len(numbers):
+        if value == target: return 1
+        else: return 0
+    
+    answer += dfs(idx+1, numbers,target, value +numbers[idx])
+    answer += dfs(idx+1, numbers,target, value -numbers[idx])
+    return answer
+
+
+    
+```
+
