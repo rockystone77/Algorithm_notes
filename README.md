@@ -381,3 +381,32 @@ if __name__ == '__main__':
 
     
 ```
+
+## 진법 변환
+
+![image](https://user-images.githubusercontent.com/88238335/136135305-c6cb3ef5-b940-4480-be86-fa95a423c21f.png)
+
+
+
+```Python
+
+def convert():
+    B, N = map(str, input().split())
+    answer = 0
+    B_= list(B)
+    #See if the letter is an alphabet and convert it to integer
+    for idx, j in enumerate(B_):
+        if j.isalpha():
+            B_[idx] = (ord(j)-55)
+    
+    #Do the math 
+    for idx, i in enumerate(B_):
+        answer += int(i)*(int(N)**(len(B)-idx -1))
+    print (answer)
+
+if __name__ == '__main__':
+    convert()
+
+
+    
+```
