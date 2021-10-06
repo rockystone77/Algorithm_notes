@@ -410,3 +410,38 @@ if __name__ == '__main__':
 
     
 ```
+
+## 비밀지도
+
+![image](https://user-images.githubusercontent.com/88238335/136136691-70a090f2-9a70-4b6b-a7fd-5653b4d97083.png)
+
+### Probably didn't have to use numpy but oh well....
+```Python
+
+import numpy as np
+def solution(n, arr1, arr2):
+    a=[]
+    b=[]
+    d=""
+    e=[]
+    #Convert all integers to binary and make sure the length is "n" and fill the empty with 0 
+    for i in arr1:
+        a.append(list(bin(i)[2:].zfill(n)))
+    for i in arr2:
+        b.append(list(bin(i)[2:].zfill(n)))
+    a_=(np.array(a)).astype(np.int)
+    b_=(np.array(b)).astype(np.int)
+    #add the two lists of binary numbers
+    c = a_ + b_
+    for i in c:
+        for j in i:
+            if j == 1 or j == 2:
+                d += "#"
+            else:
+                d += ' '
+        e.append(d)
+        d=''
+    return e
+
+    
+```
