@@ -342,3 +342,42 @@ def dfs(idx, numbers,target, value):
     
 ```
 
+## 팩토리얼 진법
+
+![image](https://user-images.githubusercontent.com/88238335/136123568-6066142b-12e8-4aa3-b218-98f5a01f43bb.png)
+
+### Probably could have done this better but for now it works.
+
+```Python
+
+def main():
+
+    #factorial function
+    def factorial(n):
+        if n == 1:
+            return 1
+        return n * factorial(n -1)
+    N = 1
+    answer1 = []
+    while (N != '0'):
+        #get input from user
+        N = str(input())
+        answer = []
+        j = []
+        j[:0] = N
+        #for each first word in N it multiplies it with the factorial of length of N going down in range. 
+        for i in range(len(N),0,-1):
+            k = j.pop(0)
+            answer.append(int(int(k) * factorial(i)))
+        if N !='0':
+            answer1.append(sum(answer))
+    print(*answer1, sep='\n')
+
+
+
+
+if __name__ == '__main__':
+    main()
+
+    
+```
