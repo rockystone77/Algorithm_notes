@@ -507,3 +507,49 @@ def solution(phoneBook):
     
 ```
 
+##체육복
+
+![image](https://user-images.githubusercontent.com/88238335/136308790-e609e384-cfef-4e37-a7cd-281508c6e1a8.png)
+
+```Python
+
+def solution(n, lost, reserve):
+    answer = 0
+    total = list()
+    
+    #Add students to list
+    for i in range(n):
+        total.append(1)
+    
+    #remove clothes lost
+    for i in lost:
+        total[i-1] -= 1
+        
+    #add clothes in reserve
+    for i in reserve:
+        total[i-1] += 1 
+    
+    #check if they can be lended to the person behind or the person ahead
+    for i in range(len(total)):
+        if total[i] == 2:
+            if i-1 >= 0:
+                if total[i-1] == 0:
+                    total[i-1] += 1
+                    total[i] -= 1
+        if total[i] == 2:
+            if i+1 < len(total):
+                if total[i+1] == 0:
+                    total[i+1] += 1
+                    total[i] -= 1
+    
+    #count how many have sport clothes now
+    for student in total:
+        if student >= 1:
+            answer += 1
+
+    return answer
+
+    
+```
+
+
