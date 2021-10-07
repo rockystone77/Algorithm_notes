@@ -473,3 +473,18 @@ if __name__ == '__main__':
 
     
 ```
+
+## 원주하지 못한 선수 
+
+![image](https://user-images.githubusercontent.com/88238335/136306080-1e4abf70-cb3e-43d8-9de3-5ea1680f2a69.png)
+
+
+```Python
+
+#import counter and use the deduction function
+from collections import Counter
+def solution(participant, completion):
+    return list((Counter(participant) - Counter(completion)).keys())[0]
+
+    
+```
