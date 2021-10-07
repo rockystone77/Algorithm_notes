@@ -488,3 +488,22 @@ def solution(participant, completion):
 
     
 ```
+
+##전화번호 목록
+
+![image](https://user-images.githubusercontent.com/88238335/136306270-5de6c8b2-3397-4514-bcee-0e85bd4322ff.png)
+
+```Python
+
+def solution(phoneBook):
+    # Sort the phonebook and See if the phone number contains the start of other phone numbers
+    phoneBook = sorted(phoneBook)
+
+    for p1, p2 in zip(phoneBook, phoneBook[1:]):
+        if p2.startswith(p1):
+            return False
+    return True
+
+    
+```
+
