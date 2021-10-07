@@ -445,3 +445,31 @@ def solution(n, arr1, arr2):
 
     
 ```
+
+## Hashing
+
+![image](https://user-images.githubusercontent.com/88238335/136302789-eca73c12-5e3a-42a7-9763-d93425c1533b.png)
+
+
+```Python
+
+def convert():
+    M = int(input())
+    N = str(input())
+    answer = 0
+    N_= list(N)
+    #Change the letters to int
+    for idx, j in enumerate(N_):
+        N_[idx] = (ord(j)-96)
+    
+    #Do the Hashing
+    for idx, i in enumerate(N_):
+        answer += int(i) * (31 ** idx)
+    print (answer % 1234567891)
+
+if __name__ == '__main__':
+    convert()
+
+
+    
+```
