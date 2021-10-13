@@ -623,5 +623,41 @@ def solution(p):
 ```
 
 
+## 계단 오르기 
 
+```Python
+def countWays():
+    n = int(input())
+    stair = [0 for i in range(n+3)]
+    for i in range(n):
+        stair[i] = (int(input()))
+    best_way_value = [0 for i in range(n+3)]
+    best_way_value[0] = stair[0]
+    best_way_value[1] = max(stair[0]+stair[1], stair[1])
+    best_way_value[2] = max(stair[0]+stair[2], stair[1]+stair[2])
 
+    #Do the addition at 3 stince it can go two steps at a time and has to land on the last step (i-3)
+    for i in range(3, n):
+        best_way_value[i] = max(best_way_value[i-2]+stair[i], stair[i-1]+stair[i]+best_way_value[i-3])
+    print(best_way_value[n-1])
+
+if __name__ == "__main__":
+    countWays()
+```
+
+## 정수 삼각형
+
+```Python
+def get_max_sum(triangle):
+    for i in range(1, len(triangle)):
+        for j in range(i + 1):
+            #Get sum on the outer layers of the triangle
+            if j==0:
+                triangle[i][j] += triangle[i-1][j]
+            elif j==i:
+                triangle[i][j] += triangle[i-1][j-1]
+            # When the triangle is in the middle get the greater number to get the greatest sum.
+            else:
+                triangle[i][j] += max(triangle[i-1][j-1], triangle[i-1][j])
+    return(max(triangle[-1]))
+```
