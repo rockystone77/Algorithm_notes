@@ -661,3 +661,26 @@ def get_max_sum(triangle):
                 triangle[i][j] += max(triangle[i-1][j-1], triangle[i-1][j])
     return(max(triangle[-1]))
 ```
+
+## N 으로 표현
+
+```Python
+def solution(N, number):
+    possible = [[]] + [[int(str(N) * i)] for i in range(1,9)]
+    if [number] in possible:
+        return possible.index([number])
+    for i in range(2,9):
+        for j in range(1, i):
+            for num1 in possible[j]:
+                for num2 in possible[i-j]:
+                    possible[i].append(num1 + num2)
+                    possible[i].append(num1 * num2)
+                    possible[i].append(num1 - num2)
+                    if num2!=0:
+                        possible[i].append(num1 // num2)
+        if number in possible[i]:
+            return i
+        possible[i] = list(set(possible[i]))
+    return -1
+```
+
