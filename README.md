@@ -683,4 +683,28 @@ def solution(N, number):
         possible[i] = list(set(possible[i]))
     return -1
 ```
+## 배달
+
+#Could have been better but who knows...
+```Python
+def solution(N, road, K):
+    length = [float('inf')] * (N + 1)
+    length[1] = 0
+    towns = [1]
+    answer = 0
+    while (towns):
+        town = towns.pop(0)
+        for a, b, cost in road:
+            if (a == town or b == town):
+                target = b if a == town else a
+                if length[target] > length[town] + cost:
+                    length[target] = length[town] + cost
+                    towns.append(target)
+
+    for i in length:
+        if i <= K:
+            answer += 1
+    return answer
+```
+
 
