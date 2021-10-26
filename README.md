@@ -707,4 +707,24 @@ def solution(N, road, K):
     return answer
 ```
 
+##lifeboat
 
+![image](https://user-images.githubusercontent.com/88238335/138837316-aec8e162-57a3-4528-a7fe-493f48b2b02f.png)
+
+```Python
+def solution(people, limit):
+    no_of_lifeboats = 0
+    start = 0
+    end = len(people) - 1
+
+    people.sort()
+
+    while start <= end:
+        no_of_lifeboats += 1
+        if people[start] + people[end] <= limit:
+            start += 1
+        end -= 1
+    return no_of_lifeboats
+  
+
+```
