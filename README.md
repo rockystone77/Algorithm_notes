@@ -728,3 +728,33 @@ def solution(people, limit):
   
 
 ```
+
+##printer
+
+![image](https://user-images.githubusercontent.com/88238335/139002954-95369761-c99e-48ef-ab3a-e384eea37acf.png)
+
+```Python
+def solution(priorities, location):
+    a = 0
+    b = 0
+
+    index = [i for i in range(len(priorities))]
+
+    while priorities:
+        first = priorities.pop(0)
+        first_index = index.pop(0)
+        counter = 0
+        for i in range(len(priorities)):
+            if priorities[i] > first:
+                counter = 1
+        if counter == 0:
+            a += 1
+            if first_index == location:
+                b = a
+                return b
+        else:
+            priorities.append(first)
+            index.append(first_index)
+    return b
+
+```
