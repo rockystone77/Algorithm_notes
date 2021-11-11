@@ -685,7 +685,7 @@ def solution(N, number):
 ```
 ## 배달
 
-#Could have been better but who knows...
+# Could have been better but who knows...
 ```Python
 def solution(N, road, K):
     length = [float('inf')] * (N + 1)
@@ -707,7 +707,7 @@ def solution(N, road, K):
     return answer
 ```
 
-##lifeboat
+## lifeboat
 
 ![image](https://user-images.githubusercontent.com/88238335/138837316-aec8e162-57a3-4528-a7fe-493f48b2b02f.png)
 
@@ -729,7 +729,7 @@ def solution(people, limit):
 
 ```
 
-##printer
+## printer
 
 ![image](https://user-images.githubusercontent.com/88238335/139002954-95369761-c99e-48ef-ab3a-e384eea37acf.png)
 
@@ -758,7 +758,7 @@ def solution(priorities, location):
     return b
 
 ```
-##전자렌지
+## 전자렌지
 
 ```Python
 
