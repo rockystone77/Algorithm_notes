@@ -758,3 +758,23 @@ def solution(priorities, location):
     return b
 
 ```
+##전자렌지
+
+```Python
+
+def microwave():
+    T = int(input())
+    buttons = [300, 60, 10]
+    answer = []
+    for button in buttons:
+        count = T // button
+        T %= button
+        answer.append(str(count))
+    if T == 0:
+        print(' '.join(answer))
+    else:
+        print(-1)
+
+microwave()
+
+```
