@@ -778,3 +778,29 @@ def microwave():
 microwave()
 
 ```
+## 큰번호 찾기
+
+```Python
+
+def solution(number, k):
+    #make a stack
+    stack = []
+    #go through each number
+    for num in number:
+        #make sure the number we put in the stack has the biggest number
+        while stack and num > stack[-1]:
+            if k > 0:
+                stack.pop()
+                k -= 1
+            else:
+                break
+        
+        stack.append(num)
+    
+    if k > 0:
+        for i in range(k):
+            stack.pop()
+    return "".join(stack)
+
+
+```
