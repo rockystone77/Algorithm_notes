@@ -804,3 +804,43 @@ def solution(number, k):
 
 
 ```
+## keypad
+
+```Python
+
+def solution(numbers, hand):
+    tempR = '12'
+    tempL = '10'
+    answer = ''
+    for num in numbers:
+        if num == 1 or num == 4 or num == 7:
+            answer += 'L'
+            tempL = num
+        elif num == 3 or num == 6 or num == 9:
+            answer += 'R'
+            tempR = num
+
+        else:
+            if num == 0:
+                num = 11
+            # this was the hardest part. 
+            # dividing by 3 and adding the remainder to that modifier gives the length to the number 
+            Rlength = sum(divmod(abs(num - tempR), 3))
+            Llength = sum(divmod(abs(num - tempL), 3))
+            if Rlength < Llength:
+                answer += 'R'
+                tempR = num
+            elif Rlength > Llength:
+                answer += 'L'
+                tempL = num
+            else:
+                if hand == 'right':
+                    answer += 'R'
+                    tempR = num
+                else:
+                    answer += 'L'
+                    tempL = num
+    return answer 
+
+
+```
